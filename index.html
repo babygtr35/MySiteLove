@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Vindo ao nosso Cantinho Do Amor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('imagens/Background_coração.jpeg') no-repeat center center fixed; /* Background com imagem */
+            background-size: cover; /* Para ajustar a imagem ao tamanho da tela */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #191970;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        figure {
+            width: 200px;
+            margin: 0;
+        }
+        .gallery img, .gallery video {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .gallery img:hover, .gallery video:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img, .lightbox video {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        figcaption {
+            margin-top: 5px;
+            font-size: 16px; 
+            color: #222;
+            font-weight: bold; 
+        }
+        footer {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        footer p {
+            font-size: 18px;
+            color: #9f0904;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bem Vindo ao nosso Cantinho Do Amor</h1>
+    <p>Esse é um lugar especial para guardar os momentos mais incríveis e engraçados.</p>
+
+    <div class="gallery">
+        <figure>
+            <img src="imagens/incrivel.jpeg" alt="Foto 1">
+            <figcaption>Nos teus olhos encontrei o brilho que ilumina meu caminho.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/perfeição.jpeg" alt="Foto 2">
+            <figcaption>No teu abraço, o lar onde minha alma sempre quer estar.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/corpo_perfeito.jpeg" alt="Foto 3">
+            <figcaption>Teu sorriso faz o tempo parar e o amor florescer.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Sorriso_Mara.jpeg" alt="Foto 4">
+            <figcaption>Cada detalhe seu é um poema que o coração escreve.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Fabulosa.jpeg" alt="Foto 5">
+            <figcaption>Ser feliz ao teu lado é o que meu coração sempre quis.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Horas_Da_Chamada.jpg" alt="Foto 6">
+            <figcaption>Seu sorriso ilumina até os dias mais nublados.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Corpo2.jpg" alt="Foto 7">
+            <figcaption>Seu olhar me faz acreditar em todos os sonhos.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Olhar_sensa.jpg" alt="Foto 8">
+            <figcaption>A cada momento contigo, sinto o amor florescer.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Corpo.jpg" alt="Foto 9">
+            <figcaption>Você é o melhor presente que a vida me deu.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/corpo_perfeito2.jpeg" alt="Foto 10">
+            <figcaption>O seu amor faz cada dia ser especial.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/OlhosLindos.jpg" alt="Foto 11">
+            <figcaption>Seus olhos são as estrelas que guiam meu coração.</figcaption>
+        </figure>
+        <figure>
+            <video src="Video/Video_Lindo1.mp4" controls></video>
+            <figcaption>Nossos momentos são eternizados em cada risada.</figcaption>
+        </figure>
+        <figure>
+            <video src="Video/Video_Lindo2.mp4" controls></video>
+            <figcaption>Cada vídeo, uma lembrança inesquecível do nosso amor.</figcaption>
+        </figure>
+        <figure>
+            <video src="Video/Video_Lindo3.mp4" controls></video>
+            <figcaption>Juntos, criamos memórias que duram para sempre.</figcaption>
+        </figure>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="close" id="close">&times;</span>
+        <img id="lightbox-img" src="">
+        <video id="lightbox-video" controls></video>
+    </div>
+
+    <footer>
+        <p>isso é apenas 1% do que eu sei fazer, por vc, e pra vc, te amo minha princesinha, dona do meu coração❤️</p>
+    </footer>
+
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const galleryVideos = document.querySelectorAll('.gallery video');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxVideo = document.getElementById('lightbox-video');
+        const close = document.getElementById('close');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.style.display = 'block';
+                lightboxVideo.style.display = 'none';
+            });
+        });
+
+        galleryVideos.forEach(video => {
+            video.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxVideo.src = video.src;
+                lightboxImg.style.display = 'none';
+                lightboxVideo.style.display = 'block';
+            });
+        });
+
+        close.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            lightboxVideo.pause();  // Pausa o vídeo ao fechar
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg && e.target !== lightboxVideo) {
+                lightbox.style.display = 'none';
+                lightboxVideo.pause();  // Pausa o vídeo ao clicar fora
+            }
+        });
+    </script>
+
+</body>
+</html>
